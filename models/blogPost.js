@@ -26,7 +26,7 @@ const blogSchema = new Schema({
   timestamps: true
 })
 
-const BlogPost = mongoose.model('Profile', blogSchema)
+const BlogPost = mongoose.model('BlogPost', blogSchema)
 
 export {
   BlogPost
