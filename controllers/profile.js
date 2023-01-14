@@ -29,8 +29,33 @@ function edit(req, res) {
   })
 }
 
+function createDog(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.dogs.push(req.body)
+    profile.save()
+    .then(() => {
+      res.redirect(`/profile/${profile._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profile')
+  })
+}
 
 export {
   show,
   edit,
+  createDog,
 }
+
+// console.log(req.body, 'req.body')
+// console.log(req.params, 'req.params')

@@ -51,6 +51,7 @@ main {
   padding: 1vmin 2vmin 0 2vmin;
   background-color: var(--TeaGreenLight);
   height: 100%;
+  color: black;
 }
 
 .right {

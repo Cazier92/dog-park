@@ -3,31 +3,47 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div class="page-top">
-    <h1><%= title %></h1>
-    <div>
-      <img src="<%= profile.avatar %>" alt="Avatar image of <%= profile.name %>">
-    </div>
-    <section>
-      <% if (user.dogs) { %>
-        <h3>Dogs:</h3>
+  <section>
+    <label>
+      Dogs:
+    </label>
+    <form action="/profile/<%= profile._id.dogs %>?_method=PATCH" method="POST">
+      <% if (profile.dogs) { %>
+        Edit Current Dogs:
+        <% profile.dogs.forEach(dog => { %>
+          <label>
+            Dog Name:
+            <input type="text" name="name" value="<%= dog.name %> ">
+          </label>
+          <label>
+            Breed:
+            <input type="text" name="breed" value="<%= dog.breed %>">
+          </label>
+          <label>
+            Color:
+            <input type="text" name="color" value="<%= dog.color %>">
+          </label>
+          <button type="submit">Add Dog</button>
+        <% }) %>
       <% } %>
-      <% profile.dogs.forEach(dog => { %>
-        <h5><%= dog.name %> </h5>
-        <ul>
-          <li>Breed:<%= dog.breed %></li>
-          <% if (dog.color) { %>
-            <li>Color:<%= dog.color %> </li>
-            <% } %>
-          </ul>
-          <% }) %>
-          <% if (profile._id.equals(user?.profile._id)) { %>
-            <a href="/profile/<%= profile._id %>/edit">
-              <button class="btn">Edit Profile</button>
-            </a>
-            <% } %>
-    </section>
-  </div>
+  </form>
+  Add New Dog:
+  <form action="/profile/<%= profile._id %>/dogs" method="POST">
+  <label>
+    Dog Name:
+    <input type="text" name="name" placeholder="Enter Dog's Name">
+  </label>
+  <label>
+    Breed:
+    <input type="text" name="breed" placeholder="Dog Breed">
+  </label>
+  <label>
+    Color:
+    <input type="text" name="color" placeholder="Dog Color">
+  </label>
+  <button type="submit">Add Dog</button>
+  </form>
+  </section>
 </main>
 
 <%- include('../partials/footer') %>
