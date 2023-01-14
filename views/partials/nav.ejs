@@ -30,7 +30,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
+            <a class="<%= user ? 'nav-link active' : 'nav-link disabled' %>" href="/profile"><%= user ? 'Profile' : '' %></a>
           </li>
         </ul>
         <form class="d-flex" role="search">

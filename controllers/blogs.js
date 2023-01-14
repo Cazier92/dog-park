@@ -1,4 +1,5 @@
 import { BlogPost } from "../models/blogPost.js";
+import { Profile } from "../models/profile.js";
 
 function index(req, res) {
   BlogPost.find({})
