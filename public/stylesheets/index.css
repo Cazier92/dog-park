@@ -1,3 +1,11 @@
+:root {
+  --PurpleNavy: #464D77;
+  --Xanadu: #758173;
+  --LaurelGreen: #A9C5A0;
+  --TeaGreenLight: #C5EFCB;
+  --TeaGreenDark: #C6DEC6;
+}
+
 body {
   text-align: center;
 }

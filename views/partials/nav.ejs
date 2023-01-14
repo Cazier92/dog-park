@@ -1,9 +1,10 @@
   <% if (!user) { %>
     <script defer src="https://accounts.google.com/gsi/client"></script>
   <% } %>
+
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="/"><i class="fas fa-solid fa-paw fa-2x"></i></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,29 +37,29 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-      </div>
-      <div>
-        <% if (user) { %>
-          <a href="/auth/logout" class="right">
-            <button type="submit">Logout</button>
-          </a>
-          <% } else { %>
-            <div 
-            id="g_id_onload"
-            data-client_id="<%= googleClientID %>"
-            data-login_uri="/auth/google"
-            data-auto_prompt="false"
-            ></div>
-            <div 
-            class="g_id_signin right"
-            data-type="standard"
-            data-size="large"
-            data-theme="outline"
-            data-text="sign_in_with"
-            data-shape="rectangular"
-            data-logo_alignment="left"
-            ></div>
-            <% } %>
+        <div>
+          <% if (user) { %>
+            <a href="/auth/logout" class="right">
+              <button type="submit">Logout</button>
+            </a>
+            <% } else { %>
+              <div 
+              id="g_id_onload"
+              data-client_id="<%= googleClientID %>"
+              data-login_uri="/auth/google"
+              data-auto_prompt="false"
+              ></div>
+              <div 
+              class="g_id_signin right"
+              data-type="standard"
+              data-size="large"
+              data-theme="outline"
+              data-text="sign_in_with"
+              data-shape="rectangular"
+              data-logo_alignment="left"
+              ></div>
+              <% } %>
+        </div>
       </div>
     </div>
   </nav>

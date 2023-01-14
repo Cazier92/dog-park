@@ -20,6 +20,14 @@ body {
   margin: 0;
 }
 
+:root {
+  --PurpleNavy: #464D77;
+  --Xanadu: #758173;
+  --LaurelGreen: #A9C5A0;
+  --TeaGreenLight: #C5EFCB;
+  --TeaGreenDark: #C6DEC6;
+}
+
 nav {
   background-color: #758173;
   color: #1a1a1a;
@@ -39,5 +47,9 @@ main {
 
 .right {
   margin-left: auto;
+}
+
+.container-fluid {
+  background-color: var(--Xanadu);
 }
 
