@@ -53,3 +53,14 @@ main {
   background-color: var(--Xanadu);
 }
 
+#nav-profile-link {
+  margin-left: 5vmin;
+}
+
+.nav-img {
+  max-width: 10vmin;
+  /* display: block; */
+
+}
+
+
