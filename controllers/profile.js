@@ -1,10 +1,10 @@
 import { BlogPost } from "../models/blogPost.js";
 import { Profile } from "../models/profile.js";
 
-function index(req, res) {
+function show(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
-    res.render('profile/index', {
+    res.render('profile/show', {
       profile,
       title: `${profile.name}`
     })
@@ -15,7 +15,22 @@ function index(req, res) {
   })
 }
 
+function edit(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    res.render('profile/edit', {
+      profile,
+      title: 'Edit Profile'
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profile')
+  })
+}
+
 
 export {
-  index
+  show,
+  edit,
 }

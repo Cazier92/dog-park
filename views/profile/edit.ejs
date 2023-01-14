@@ -1,0 +1,33 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="../stylesheets/index.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <div class="page-top">
+    <h1><%= title %></h1>
+    <div>
+      <img src="<%= profile.avatar %>" alt="Avatar image of <%= profile.name %>">
+    </div>
+    <section>
+      <% if (user.dogs) { %>
+        <h3>Dogs:</h3>
+      <% } %>
+      <% profile.dogs.forEach(dog => { %>
+        <h5><%= dog.name %> </h5>
+        <ul>
+          <li>Breed:<%= dog.breed %></li>
+          <% if (dog.color) { %>
+            <li>Color:<%= dog.color %> </li>
+            <% } %>
+          </ul>
+          <% }) %>
+          <% if (profile._id.equals(user?.profile._id)) { %>
+            <a href="/profile/<%= profile._id %>/edit">
+              <button class="btn">Edit Profile</button>
+            </a>
+            <% } %>
+    </section>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

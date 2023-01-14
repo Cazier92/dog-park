@@ -28,6 +28,12 @@ body {
   --TeaGreenDark: #C6DEC6;
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
 nav {
   background-color: #758173;
   color: #1a1a1a;
@@ -43,6 +49,8 @@ main {
   justify-content: center;
   flex-direction: column;
   padding: 1vmin 2vmin 0 2vmin;
+  background-color: var(--TeaGreenLight);
+  height: 100%;
 }
 
 .right {
@@ -63,4 +71,7 @@ main {
 
 }
 
+.page-top {
+  margin-top: 0;
+}
 
