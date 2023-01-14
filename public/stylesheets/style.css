@@ -21,7 +21,7 @@ body {
 }
 
 nav {
-  background-color: #f6f6f6;
+  background-color: #758173;
   color: #1a1a1a;
   display: flex;
   align-items: center;
@@ -34,8 +34,10 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 1vmin 2vmin 0 2vmin;
 }
 
 .right {
   margin-left: auto;
 }
+
