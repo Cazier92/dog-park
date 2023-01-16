@@ -32,7 +32,14 @@
     </section>
   </div>
   <section>
-    
+    <h2>Your Blogs:</h2>
+    <% profile.blogPosts.forEach(blog => { %>
+      <div>
+        <h3><%= blog.title %></h3>
+        <h4><%= blog.summary %></h4>
+        <p><%= blog.content %></p>
+      </div>
+    <% }) %>
   </section>
 </main>
 
