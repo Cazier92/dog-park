@@ -25,6 +25,14 @@ function newBlog(req, res) {
 
 function create(req, res) {
   req.body.author = req.user.profile._id
+  BlogPost.create(req.body)
+  .then(blog => {
+    res.redirect('/blogs')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 

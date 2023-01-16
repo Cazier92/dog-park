@@ -7,7 +7,7 @@ const router = Router()
 router.get('/', blogsCtrl.index)
 router.get('/new', isLoggedIn, blogsCtrl.new)
 
-router.post('/blogs', isLoggedIn, blogsCtrl.create)
+router.post('/', isLoggedIn, blogsCtrl.create)
 
 
 export {
