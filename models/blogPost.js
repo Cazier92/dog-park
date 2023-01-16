@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { trusted } from 'mongoose'
 
 const Schema = mongoose.Schema
 
@@ -12,6 +12,10 @@ const commentSchema = new Schema({
 
 const blogSchema = new Schema({
   title: {
+    type: String,
+    required: true,
+  },
+  summary: {
     type: String,
     required: true,
   },

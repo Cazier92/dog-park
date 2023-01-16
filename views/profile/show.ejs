@@ -9,7 +9,7 @@
       <img src="<%= profile.avatar %>" alt="Avatar image of <%= profile.name %>">
     </div>
     <section>
-      <% if (user.dogs) { %>
+      <% if (profile.dogs) { %>
         <h3>Dogs:</h3>
       <% } %>
       <% profile.dogs.forEach(dog => { %>
@@ -23,9 +23,12 @@
           <% }) %>
           <% if (profile._id.equals(user?.profile._id)) { %>
             <a href="/profile/<%= profile._id %>/edit">
-              <button class="btn">Edit Profile</button>
+              <button>Edit Profile</button>
             </a>
             <% } %>
+    </section>
+    <section>
+      <a href="/blogs/new"><button>Write new Blog</button></a>
     </section>
   </div>
 </main>

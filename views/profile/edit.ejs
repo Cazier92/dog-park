@@ -7,7 +7,7 @@
     <label>
       Dogs:
     </label>
-    <form action="/profile/<%= profile._id.dogs %>?_method=PATCH" method="POST">
+    <form action="/profile/<%= profile._id %>/updateDogs?_method=PUT" method="POST">
       <% if (profile.dogs) { %>
         Edit Current Dogs:
         <% profile.dogs.forEach(dog => { %>
@@ -23,7 +23,7 @@
             Color:
             <input type="text" name="color" value="<%= dog.color %>">
           </label>
-          <button type="submit">Add Dog</button>
+          <button type="submit">Edit Dog</button>
         <% }) %>
       <% } %>
   </form>

@@ -15,7 +15,24 @@ function index(req, res) {
   })
 }
 
+function newBlog(req, res) {
+  console.log(req.body, 'req.body')
+  console.log(req.params, 'req.params')
+  res.render('blogs/new', {
+    title: 'Write New Blog Post',
+  })
+}
+
+function create(req, res) {
+  req.body.author = req.user.profile._id
+}
+
 
 export {
-  index
+  index,
+  newBlog as new,
+  create,
 }
+
+// console.log(req.body, 'req.body')
+// console.log(req.params, 'req.params')

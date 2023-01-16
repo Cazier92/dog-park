@@ -10,6 +10,10 @@ body {
   text-align: center;
 }
 
+main  {
+  justify-content: flex-start;
+}
+
 h4 {
   margin-top: 5vmin;
 }

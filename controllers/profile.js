@@ -51,10 +51,33 @@ function createDog(req, res) {
   })
 }
 
+function updateDogs(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Profile.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(profile => {
+    profile.save()
+    .then(profile => {
+      res.redirect(`/profile/${profile._id}`)
+    })
+        .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profile/show')
+  })
+}
+
+
 export {
   show,
   edit,
   createDog,
+  updateDogs,
 }
 
 // console.log(req.body, 'req.body')

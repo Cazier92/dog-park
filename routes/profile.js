@@ -5,9 +5,11 @@ import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
 
 router.get('/:id', profileCtrl.show)
-router.get('/:id/edit', profileCtrl.edit)
+router.get('/:id/edit', isLoggedIn, profileCtrl.edit)
 
-router.post('/:id/dogs', profileCtrl.createDog)
+router.post('/:id/dogs', isLoggedIn, profileCtrl.createDog)
+
+router.put('/:id/updateDogs', isLoggedIn, profileCtrl.updateDogs)
 
 export {
   router
