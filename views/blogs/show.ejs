@@ -10,6 +10,14 @@
   <section>
     <p><%= blog.content %> </p>
   </section>
+  <% if (blog.author._id.equals(user?.profile._id)) { %>
+    <a href="/blogs/<%= blog._id %>/edit">
+      <button>Edit Blog</button>
+    </a>
+    <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete Blog</button>
+    </form>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>

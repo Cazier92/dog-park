@@ -67,12 +67,46 @@ function show(req, res) {
   })
 }
 
+function edit(req, res) {
+  BlogPost.findById(req.params.id)
+  .then(blog => {
+    res.render('blogs/edit', {
+      title: 'Edit Blog Post',
+      blog
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/blogs/show')
+  })
+}
+
+function update(req, res) {
+  BlogPost.findById(req.params.id)
+  .then(blog => {
+    if (blog.author.equals(req.user.profile._id)) {
+      blog.updateOne(req.body)
+      .then(() => {
+        res.redirect(`/blogs/${blog._id}`)
+      })
+    } else {
+      throw new Error('Not Authorized: User does not match BlogPost.author')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/blogs/show')
+  })
+}
+
 
 export {
   index,
   newBlog as new,
   create,
   show,
+  edit,
+  update,
 }
 
 // console.log(req.body, 'req.body')
