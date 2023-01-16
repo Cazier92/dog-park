@@ -27,12 +27,18 @@
             </a>
             <% } %>
     </section>
-    <section>
-      <a href="/blogs/new"><button>Write new Blog</button></a>
-    </section>
+    <% if (profile._id.equals(user?.profile._id)) { %>
+      <section>
+        <a href="/blogs/new"><button>Write new Blog</button></a>
+      </section>
+      <% } %>
   </div>
   <section>
-    <h2>Your Blogs:</h2>
+    <% if (profile._id.equals(user?.profile._id)) { %>    
+      <h2>Your Blogs:</h2>
+      <% } else { %>
+        <h2><%= profile.name %>'s Blogs:</h2>
+        <% } %> 
     <% profile.blogPosts.forEach(blog => { %>
       <div>
         <h3><%= blog.title %></h3>

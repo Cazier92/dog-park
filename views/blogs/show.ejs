@@ -4,12 +4,11 @@
 
 <main>
   <h1><%= title %></h1>
+  <h4>Written By:
+    <a href="/profile/<%= blog.author._id %>"><%= blog.author.name %></a>
+  </h4>
   <section>
-    
-  </section>
-  <section>
-    <ul>
-
+    <p><%= blog.content %> </p>
   </section>
 </main>
 
