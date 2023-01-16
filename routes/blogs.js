@@ -13,6 +13,7 @@ router.post('/', isLoggedIn, blogsCtrl.create)
 
 router.put('/:id', isLoggedIn, blogsCtrl.update)
 
+router.delete('/:id', isLoggedIn, blogsCtrl.delete)
 
 export {
   router

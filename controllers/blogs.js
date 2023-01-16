@@ -99,6 +99,24 @@ function update(req, res) {
   })
 }
 
+function deleteBlog(req, res) {
+  BlogPost.findById(req.params.id)
+  .then(blog => {
+    if (blog.author.equals(req.user.profile._id)) {
+      blog.delete()
+      .then(() => {
+        res.redirect('/blogs')
+      })
+    } else {
+      throw new Error('Not Authorized: User does not match BlogPost.author')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/blogs/show')
+  })
+}
+
 
 export {
   index,
@@ -107,6 +125,7 @@ export {
   show,
   edit,
   update,
+  deleteBlog as delete,
 }
 
 // console.log(req.body, 'req.body')
