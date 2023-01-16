@@ -10,6 +10,7 @@ router.get('/:id', blogsCtrl.show)
 router.get('/:id/edit', isLoggedIn, blogsCtrl.edit)
 
 router.post('/', isLoggedIn, blogsCtrl.create)
+router.post('/:id/comments', isLoggedIn, blogsCtrl.addComment)
 
 router.put('/:id', isLoggedIn, blogsCtrl.update)
 

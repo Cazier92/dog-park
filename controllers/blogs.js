@@ -55,10 +55,11 @@ function create(req, res) {
 function show(req, res) {
   BlogPost.findById(req.params.id)
   .populate('author')
+  .populate('comments.author')
   .then(blog => {
     res.render('blogs/show', {
       title: blog.title,
-      blog
+      blog,
     })
   })
   .catch(err => {
@@ -117,6 +118,25 @@ function deleteBlog(req, res) {
   })
 }
 
+function addComment(req, res) {
+  BlogPost.findById(req.params.id)
+  .then(blog => {
+    req.body.author = req.user.profile._id
+    blog.comments.push(req.body)
+    blog.save()
+    .then(() => {
+      res.redirect(`/blogs/${blog._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/blogs/${blog._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/blogs')
+  })
+}
 
 export {
   index,
@@ -126,6 +146,7 @@ export {
   edit,
   update,
   deleteBlog as delete,
+  addComment,
 }
 
 // console.log(req.body, 'req.body')

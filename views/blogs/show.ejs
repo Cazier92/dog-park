@@ -10,14 +10,34 @@
   <section>
     <p><%= blog.content %> </p>
   </section>
-  <% if (blog.author._id.equals(user?.profile._id)) { %>
-    <a href="/blogs/<%= blog._id %>/edit">
-      <button>Edit Blog</button>
-    </a>
-    <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete Blog</button>
-    </form>
-  <% } %>
+  <section>
+    <h5>Comments:</h5>
+    <% if (user) { %>
+      <form action="/blogs/<%= blog._id %>/comments" method="POST">
+        <textarea name="content" placeholder="Write New Comment Here"></textarea>
+        <br>
+        <button>Add Comment</button>
+      </form>
+    <% } %>
+    <% blog.comments.forEach(comment => { %>
+      <div>
+        <p><%= comment.content %></p>
+        <p class="details-p">Comment from <a href="/profile/<%= comment.author._id %>"><%= comment.author.name %></a>, posted on <%= comment.createdAt.toLocaleDateString() %></p>
+        
+      </div>
+    <% }) %>
+  </section>
+  <br>
+  <section>
+    <% if (blog.author._id.equals(user?.profile._id)) { %>
+      <a href="/blogs/<%= blog._id %>/edit">
+        <button>Edit Blog</button>
+      </a>
+      <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Blog</button>
+      </form>
+    <% } %>   
+  </section>
 </main>
 
 <%- include('../partials/footer') %>

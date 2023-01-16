@@ -49,7 +49,7 @@ main {
   justify-content: center;
   flex-direction: column;
   padding: 1vmin 2vmin 0 2vmin;
-  background-color: var(--TeaGreenLight);
+  background-color: var(--LaurelGreen);
   height: 100%;
   color: black;
 }

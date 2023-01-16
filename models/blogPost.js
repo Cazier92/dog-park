@@ -8,6 +8,8 @@ const commentSchema = new Schema({
     type: String,
     required: true,
   }
+}, {
+  timestamps: true
 })
 
 const blogSchema = new Schema({
