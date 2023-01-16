@@ -41,7 +41,11 @@
         <% } %> 
     <% profile.blogPosts.forEach(blog => { %>
       <div>
-        <h3><%= blog.title %></h3>
+        <h3>
+          <a href="/blogs/<%= blog._id %>">
+            <%= blog.title %>
+          </a>
+        </h3>
         <h4><%= blog.summary %></h4>
         <p><%= blog.content %></p>
       </div>
