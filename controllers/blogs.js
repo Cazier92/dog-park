@@ -24,10 +24,27 @@ function newBlog(req, res) {
 }
 
 function create(req, res) {
+  console.log(req.body, 'req.body')
+  console.log(req.params, 'req.params')
   req.body.author = req.user.profile._id
   BlogPost.create(req.body)
   .then(blog => {
-    res.redirect('/blogs')
+    Profile.findById(req.user.profile._id)
+    .then(profile => {
+      profile.blogPosts.push(blog._id)
+      profile.save()
+      .then(() => {
+        res.redirect('/blogs')
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
   })
   .catch(err => {
     console.log(err)
