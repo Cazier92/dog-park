@@ -6,6 +6,7 @@ const router = Router()
 
 router.get('/', blogsCtrl.index)
 router.get('/new', isLoggedIn, blogsCtrl.new)
+router.get('/:id', blogsCtrl.show)
 
 router.post('/', isLoggedIn, blogsCtrl.create)
 

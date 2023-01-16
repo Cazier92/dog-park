@@ -52,11 +52,27 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  BlogPost.findById(req.params.id)
+  .populate('author')
+  .then(blog => {
+    res.render('blogs/show', {
+      title: blog.title,
+      blog
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/blogs')
+  })
+}
+
 
 export {
   index,
   newBlog as new,
   create,
+  show,
 }
 
 // console.log(req.body, 'req.body')
