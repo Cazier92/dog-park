@@ -11,6 +11,8 @@
       <p><%= dog.color %></p>
       <h5>Age:</h5>
       <p><%= dog.age %></p>
+      <h5>Owner:</h5>
+      <p><a href="/profile/<%= dog.owner._id %>"><%= dog.owner.name %></a></p>
     </section>
     <section>
       <% if (dog.owner._id.equals(user?.profile._id)) { %>
