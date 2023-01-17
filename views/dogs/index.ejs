@@ -9,7 +9,9 @@
     <a href="/dogs/new">New Dog</a>
   </section>
   <section>
-    
+    <% dogs.forEach(dog => { %>
+      <a href="/profile/<%= dog.owner._id %>"><%= dog.name %></a>
+    <% }) %>
   </section>
 </main>
 

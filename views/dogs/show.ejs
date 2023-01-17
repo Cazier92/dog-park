@@ -1,0 +1,27 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="../stylesheets/index.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <section>
+      <h5>Breed:</h5>
+      <p><%= dog.breed %></p>
+      <h5>Color:</h5>
+      <p><%= dog.color %></p>
+      <h5>Age:</h5>
+      <p><%= dog.age %></p>
+    </section>
+    <section>
+      <% if (dog.owner._id.equals(user?.profile._id)) { %>
+        <a href="/dogs/<%= dog._id %>/edit">
+          <button>Edit Dog Info</button>
+        </a>
+        <form action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+          <button type="submit">Remove Dog</button>
+        </form>
+      <% } %>   
+    </section>
+</main>
+
+<%- include('../partials/footer') %>

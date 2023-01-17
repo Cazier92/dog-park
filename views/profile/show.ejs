@@ -13,7 +13,7 @@
         <h3>Dogs:</h3>
       <% } %>
       <% profile.dogs.forEach(dog => { %>
-        <h5><%= dog.name %></h5>
+        <h5><a href="/dogs/<%= dog._id %>"><%= dog.name %></a></h5>
         <ul>
           <li>Breed: <%= dog.breed %></li>
           <% if (dog.color) { %>
