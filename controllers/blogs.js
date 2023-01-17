@@ -138,6 +138,26 @@ function addComment(req, res) {
   })
 }
 
+function editComment(req, res) {
+  BlogPost.findById(req.params.blogId)
+  .then(blog => {
+    const commentDoc = blog.comments.id(req.params.commentId)
+    if (commentDoc.author.equals(req.user.profile._id)) {
+      res.render('blogs/editComment', {
+        title: 'Edit Comment',
+        blog,
+        comment: commentDoc,
+      })
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+
+
 export {
   index,
   newBlog as new,
@@ -147,6 +167,7 @@ export {
   update,
   deleteBlog as delete,
   addComment,
+  editComment,
 }
 
 // console.log(req.body, 'req.body')

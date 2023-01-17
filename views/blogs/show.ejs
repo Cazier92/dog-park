@@ -23,7 +23,18 @@
       <div>
         <p><%= comment.content %></p>
         <p class="details-p">Comment from <a href="/profile/<%= comment.author._id %>"><%= comment.author.name %></a>, posted on <%= comment.createdAt.toLocaleDateString() %></p>
-        
+        <% if (comment.author._id.equals(user?.profile._id)) { %>
+          <a href="/blogs/<%= blog._id %>/comments/<%= comment._id %>">
+            <button>Edit Comment</button>
+          </a>
+          <a href="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+            <button>Delete Comment</button>
+          </a>
+        <% } else if (blog.author._id.equals(user?.profile._id)) { %>
+          <a href="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+            <button>Delete Comment</button>
+          </a>
+          <% } %> 
       </div>
     <% }) %>
   </section>

@@ -46,7 +46,7 @@ nav {
 main {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 1vmin 2vmin 0 2vmin;
   background-color: var(--LaurelGreen);

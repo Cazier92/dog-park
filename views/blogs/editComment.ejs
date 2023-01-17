@@ -1,0 +1,16 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="../stylesheets/index.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <section>
+    <form action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+      <textarea name="content"><%= comment.content %></textarea>
+      <br>
+      <button>Update Comment</button>
+    </form>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
