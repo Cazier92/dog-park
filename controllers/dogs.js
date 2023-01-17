@@ -102,7 +102,7 @@ function update(req, res) {
         res.redirect(`/dogs/${dog._id}`)
       })
     } else {
-      throw new Error('Not Authorized: User does not match Dog.owner')
+      throw new Error('Not Authorized: User does not match dog.owner')
     }
   })
   .catch(err => {
@@ -112,7 +112,21 @@ function update(req, res) {
 }
 
 function deleteDog(req, res) {
-
+  Dog.findById(req.params.id)
+  .then(dog => {
+    if (dog.owner.equals(req.user.profile._id)) {
+      dog.delete()
+      .then(() => {
+        res.redirect('/dogs')
+      })
+    } else {
+      throw new Error('Not Authorized: User does not match dog.owner')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/dogs/show')
+  })
 }
 
 export {

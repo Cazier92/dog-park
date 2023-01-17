@@ -91,7 +91,7 @@ function update(req, res) {
         res.redirect(`/blogs/${blog._id}`)
       })
     } else {
-      throw new Error('Not Authorized: User does not match BlogPost.author')
+      throw new Error('Not Authorized: User does not match blog.author')
     }
   })
   .catch(err => {
@@ -109,7 +109,7 @@ function deleteBlog(req, res) {
         res.redirect('/blogs')
       })
     } else {
-      throw new Error('Not Authorized: User does not match BlogPost.author')
+      throw new Error('Not Authorized: User does not match blog.author')
     }
   })
   .catch(err => {
