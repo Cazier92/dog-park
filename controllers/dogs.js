@@ -7,7 +7,7 @@ function index(req, res) {
     res.render('dogs/index', {
       dogs,
       title: 'Dogs',
-      // breedList: dogBreeds(dogs)
+      breedList: dogBreeds(dogs)
     })
   })
   .catch(err => {
@@ -19,11 +19,15 @@ function index(req, res) {
 function dogBreeds(dogs) {
   let dogBreedArr = []
   dogs.forEach(dog => {
-    const dogBreed = dog.breed
-    if (dogBreedArr.some(dogBreed) === false) {
+    console.log(dog, 'dog')
+    console.log(dog.breed, 'dog.breed')
+    console.log(typeof dog.breed)
+    // const dogBreed = dog.breed
+    if (dogBreedArr.includes(dog.breed) === false) {
       dogBreedArr.push(dog.breed)
     }
   })
+  console.log(dogBreedArr)
   return dogBreedArr
 }
 

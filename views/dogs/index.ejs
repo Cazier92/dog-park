@@ -5,8 +5,13 @@
 <main>
   <h1><%= title %></h1>
   <section>
-    <% dogs.forEach(dog => { %>
-      <a href="/profile/<%= dog.owner._id %>"><%= dog.name %></a>
+    <% breedList.forEach(breed => { %>
+      <h5><%= breed %></h5>
+      <% dogs.forEach(dog => { %>
+        <% if (dog.breed === breed) { %>
+          <a href="/profile/<%= dog.owner._id %>"><%= dog.name %></a>
+        <% } %>
+      <% }) %>
     <% }) %>
   </section>
 </main>
