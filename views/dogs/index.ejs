@@ -4,15 +4,12 @@
 
 <main>
   <h1><%= title %></h1>
+  <!-- !Remove New Dog after done fixing bugs! -->
   <section>
-    <ul>
-      <% blogs.forEach(blog => { %>
-        <div>
-          <a href="blogs/<%= blog._id %>"><%= blog.title %></a>
-          <p><%= blog.summary %></p>
-        </div>
-      <% }) %>
-    </ul>
+    <a href="/dogs/new">New Dog</a>
+  </section>
+  <section>
+    
   </section>
 </main>
 

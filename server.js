@@ -9,6 +9,7 @@ import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
 
+
 // import custom middleware
 import { passDataToView } from './middleware/middleware.js'
 
@@ -23,6 +24,7 @@ import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as blogsRouter } from './routes/blogs.js'
 import { router as profileRouter } from './routes/profile.js'
+import { router as dogsRouter } from './routes/dogs.js'
 
 // create the express app
 const app = express()
@@ -69,6 +71,7 @@ app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/blogs', blogsRouter)
 app.use('/profile', profileRouter)
+app.use('/dogs', dogsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

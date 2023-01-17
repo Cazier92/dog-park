@@ -22,7 +22,10 @@
           </ul>
           <% }) %>
           <% if (profile._id.equals(user?.profile._id)) { %>
-            <a href="/profile/<%= profile._id %>/edit">
+            <a href="/dogs/new">
+              <button>Add Dog</button>
+            </a>
+            <a href="/profile/<%= profile._id %> %>/edit">
               <button>Edit Profile</button>
             </a>
             <% } %>

@@ -4,12 +4,10 @@
 
 <main>
   <section>
-    <label>
-      Dogs:
-    </label>
-    <form action="/profile/<%= profile._id %>?_method=PUT" method="POST">
+    <form action="/profile/<%= profile._id %>/dogs/<%= dogs._id %>?_method=PUT" method="POST">
       <% if (profile.dogs) { %>
         Edit Current Dogs:
+        <br>
         <% profile.dogs.forEach(dog => { %>
           <label>
             Dog Name:
@@ -23,25 +21,10 @@
             Color:
             <input type="text" name="color" value="<%= dog.color %>">
           </label>
-          <button type="submit">Edit Dog</button>
-        <% }) %>
-      <% } %>
-  </form>
-  Add New Dog:
-  <form action="/profile/<%= profile._id %>/dogs" method="POST">
-  <label>
-    Dog Name:
-    <input type="text" name="name" placeholder="Enter Dog's Name">
-  </label>
-  <label>
-    Breed:
-    <input type="text" name="breed" placeholder="Dog Breed">
-  </label>
-  <label>
-    Color:
-    <input type="text" name="color" placeholder="Dog Color">
-  </label>
-  <button type="submit">Add Dog</button>
+          <br>
+          <% }) %>
+          <% } %>
+    <button type="submit">Edit Dogs</button>
   </form>
   </section>
 </main>

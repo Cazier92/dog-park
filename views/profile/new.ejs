@@ -1,0 +1,25 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="../stylesheets/index.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <section>
+  <form action="/profile/<%= profile._id %>/dogs" method="POST">
+    <label>
+      Dog Name:
+      <input type="text" name="name" placeholder="Enter Dog's Name">
+    </label>
+    <label>
+      Breed:
+      <input type="text" name="breed" placeholder="Dog Breed">
+    </label>
+    <label>
+      Color:
+      <input type="text" name="color" placeholder="Dog Color">
+    </label>
+    <button type="submit">Add Dog</button>
+    </form>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
