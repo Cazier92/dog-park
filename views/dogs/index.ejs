@@ -4,10 +4,6 @@
 
 <main>
   <h1><%= title %></h1>
-  <!-- !Remove New Dog after done fixing bugs! -->
-  <section>
-    <a href="/dogs/new">New Dog</a>
-  </section>
   <section>
     <% dogs.forEach(dog => { %>
       <a href="/profile/<%= dog.owner._id %>"><%= dog.name %></a>

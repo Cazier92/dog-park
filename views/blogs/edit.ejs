@@ -5,7 +5,6 @@
 <main>
   <h1><%= title %></h1>
   <section>
-    <p><%= user.profile.id %></p>
     <form action="/blogs/<%= blog._id %>?_method=PUT" method="POST">
       <label for="blog-title">Blog Title:</label>
       <input type="text" name="title" id="blog-title" value="<%= blog.title %>">

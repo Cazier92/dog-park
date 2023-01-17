@@ -83,18 +83,32 @@ function edit(req, res) {
   Dog.findById(req.params.id)
   .then(dog => {
     res.render('dogs/edit', {
-      title: 'Edit Blog Post',
-      blog
+      title: 'Edit Dog Info',
+      dog
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/blogs/show')
+    res.redirect('/dogs/show')
   })
 }
 
 function update(req, res) {
-
+  Dog.findById(req.params.id)
+  .then(dog => {
+    if (dog.owner.equals(req.user.profile._id)) {
+      dog.updateOne(req.body)
+      .then(() => {
+        res.redirect(`/dogs/${dog._id}`)
+      })
+    } else {
+      throw new Error('Not Authorized: User does not match Dog.owner')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/dogs/show')
+  })
 }
 
 function deleteDog(req, res) {
