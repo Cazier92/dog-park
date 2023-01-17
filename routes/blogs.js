@@ -17,6 +17,7 @@ router.put('/:id', isLoggedIn, blogsCtrl.update)
 router.put('/:blogId/comments/:commentId', isLoggedIn, blogsCtrl.updateComment)
 
 router.delete('/:id', isLoggedIn, blogsCtrl.delete)
+router.delete('/:blogId/comments/:commentId', isLoggedIn, blogsCtrl.deleteComment)
 
 export {
   router

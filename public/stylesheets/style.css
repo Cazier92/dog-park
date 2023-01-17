@@ -49,9 +49,9 @@ main {
   justify-content: flex-start;
   flex-direction: column;
   padding: 1vmin 2vmin 0 2vmin;
-  background-color: var(--LaurelGreen);
+  background-color: black;
   height: 100%;
-  color: black;
+  color: antiquewhite;
 }
 
 .right {

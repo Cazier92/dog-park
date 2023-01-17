@@ -182,6 +182,39 @@ function updateComment(req, res) {
   })
 }
 
+function deleteComment(req, res) {
+  BlogPost.findById(req.params.blogId)
+  .then(blog => {
+    const commentDoc = blog.comments.id(req.params.commentId)
+    if (commentDoc.author.equals(req.user.profile._id)) {
+      blog.comments.remove(commentDoc)
+      blog.save()
+      .then(() => {
+        res.redirect(`/blogs/${blog._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/blogs')
+      })
+    } else if (blog.author.equals(req.user.profile._id)) {
+      blog.comments.remove(commentDoc)
+      blog.save()
+      .then(() => {
+        res.redirect(`/blogs/${blog._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/blogs')
+      })
+    } else {
+      throw new Error('Not Authorized: User does not match commentDoc.author nor blog.author')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/blogs')
+  })
+}
 
 
 export {
@@ -195,6 +228,7 @@ export {
   addComment,
   editComment,
   updateComment,
+  deleteComment,
 }
 
 // console.log(req.body, 'req.body')

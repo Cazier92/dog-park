@@ -9,7 +9,7 @@ router.get('/:id/edit', isLoggedIn, profileCtrl.edit)
 
 router.post('/:id/dogs', isLoggedIn, profileCtrl.createDog)
 
-router.put('/:id/updateDogs', isLoggedIn, profileCtrl.updateDogs)
+router.put('/:id', isLoggedIn, profileCtrl.updateDogs)
 
 export {
   router
