@@ -1,4 +1,4 @@
-# fly.toml file generated for the-dog-park-network on 2023-01-18T13:10:39-08:00
+# fly.toml file generated for the-dog-park-network on 2023-01-18T14:13:47-08:00
 
 app = "the-dog-park-network"
 kill_signal = "SIGINT"
@@ -6,6 +6,7 @@ kill_timeout = 5
 processes = []
 
 [env]
+
 
 [experimental]
   auto_rollback = true
