@@ -155,11 +155,15 @@ function addFriend(req, res) {
       console.log(friendProfile._id, 'friendProfile')
       userProfile.friends.push(friendProfile._id)
       friendProfile.friends.push(userProfile._id)
-      // userProfile.friendRequests.splice((userProfile.friendRequests.indexOf(friendProfile.friendCode)), 1)
+      let friendCodeId = friendProfile.friendCode
+      let friendRequestArr = userProfile.friendRequests
+      console.log(friendRequestArr.indexOf(friendCodeId))
+      friendRequestArr.splice((friendRequestArr.indexOf(friendCodeId)), 1)
+      // console.log(userProfile.friendRequests.IndexOf('e1ecc000'))
       userProfile.save()
       friendProfile.save()
       .then(() => {
-
+        res.redirect(`/profile/${friendProfile._id}`)
       })
     })
     .catch(err => {
@@ -171,6 +175,12 @@ function addFriend(req, res) {
     console.log(err)
     res.redirect('/')
   })
+}
+
+function findFriendRequestCode(userProfile, friendProfile) {
+  let friendCodeId = friendProfile.friendCode
+  let friendRequestIdx = userProfile.friendRequests.IndexOf(friendCodeId)
+  console.log(friendRequestIdx)
 }
 
 export {
