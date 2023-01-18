@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="../stylesheets/index.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <section>
+    <h3>Your Friend Code is: <%= profile.friendCode %></h3>
+  </section>
+  <section>
+    <h3>Add Friends by Friend Code:</h3>
+    <form action="/profile/<%= profile._id %>?_method=PATCH" method="POST">
+      <input type="text" name="friendRequests" placeholder="type 8-digit friend code here">
+      <button type="submit">Add Friend</button>
+    </form>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

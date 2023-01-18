@@ -74,26 +74,75 @@ function updateDogs(req, res) {
   
 }
 
-// function editComment(req, res) {
-//   BlogPost.findById(req.params.blogId)
-//   .then(blog => {
-//     const commentDoc = blog.comments.id(req.params.commentId)
-//     if (commentDoc.author.equals(req.user.profile._id)) {
-//       res.render('blogs/editComment', {
-//         title: 'Edit Comment',
-//         blog,
-//         comment: commentDoc,
-//       })
-//     } else {
-//       throw new Error('Not Authorized: User does not match commentDoc.author')
-//     }
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     res.redirect('/')
-//   })
-// }
+function friendCode(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    if (profile._id.equals(req.user.profile._id)) {
+      res.render('profile/friendCode', {
+        profile,
+        title: 'Friend Code'
+      })
+    } else {
+      throw new Error('Not Authorized: user does not match profile._id')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profile')
+  })
+}
 
+function friendRequests(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    Profile.find({})
+    .then(globalProfiles => {
+      if (profile._id.equals(req.user.profile._id)) {
+        res.render('profile/friendRequests', {
+          profile,
+          globalProfiles,
+          title: 'Friend Requests'
+        })
+      } else {
+        throw new Error('Not Authorized: user does not match profile._id')
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/profile')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profile')
+  })
+}
+
+function sendFriendRequest(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    Profile.findById(req.user.profile._id)
+    .then(userProfile => {
+      profile.friendRequests.push(userProfile.friendCode)
+      profile.save()
+      .then(() => {
+        res.redirect(`/profile/${profile._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 
 export {
   show,
@@ -101,6 +150,9 @@ export {
   newDog as new,
   createDog,
   updateDogs,
+  friendCode,
+  friendRequests,
+  sendFriendRequest,
 }
 
 // console.log(req.body, 'req.body')

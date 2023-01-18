@@ -8,6 +8,15 @@
     <div>
       <img src="<%= profile.avatar %>" alt="Avatar image of <%= profile.name %>">
     </div>
+    <div>
+      <% if (profile._id.equals(user?.profile._id)) { %>
+        
+      <% } else if (profile.friends.includes(user?.profile.friendCode)) { %>
+        <h6>You and <%= profile.name %> are friends!</h6>
+      <% } else { %> 
+        <form action="/profile/<%= profile._id %>/sendFriendRequest?_method=PATCH" method="POST"><button type="submit">Add Friend</button></form>
+      <% } %> 
+      </div>
     <section>
       <% if (profile.dogs) { %>
         <h3>Dogs:</h3>
@@ -50,9 +59,8 @@
           </a>
         </h3>
         <h4><%= blog.summary %></h4>
-        <p><%= blog.content %></p>
       </div>
-    <% }) %>
+        <% }) %>
   </section>
 </main>
 

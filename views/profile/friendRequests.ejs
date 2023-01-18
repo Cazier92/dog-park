@@ -1,0 +1,16 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="../stylesheets/index.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <% profile.friendRequests.forEach(requestCode => { %>
+    <% globalProfiles.forEach(globalProfile => { %>
+      <% if (globalProfile.friendCode === requestCode) { %>
+        <p><%= globalProfile.name %></p>
+      <% } %>
+    <% }) %>
+  <% }) %>
+</main>
+
+<%- include('../partials/footer') %>

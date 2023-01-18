@@ -16,6 +16,7 @@ const profileSchema = new Schema({
       return uuidv4().slice(0,8)
     }
   },
+  friendRequests: [{type: String}],
   friends: [{type: Schema.Types.ObjectId, ref: 'Profile'}]
 }, {
   timestamps: true
