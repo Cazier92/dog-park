@@ -4,10 +4,14 @@
 
 <main>
   <h1><%= title %></h1>
-  <% profile.friendRequests.forEach(requestCode => { %>
+  <% userProfile.friendRequests.forEach(requestCode => { %>
     <% globalProfiles.forEach(globalProfile => { %>
       <% if (globalProfile.friendCode === requestCode) { %>
-        <p><%= globalProfile.name %></p>
+        <img src="<%= globalProfile.avatar %>" alt="Avatar image of <%= globalProfile.name %>">
+        <p><a href="/profile/<%= globalProfile._id %>"><%= globalProfile.name %></a></p>
+        <form action="/profile/<%= userProfile._id %>/profile/<%= globalProfile._id %>?_method=PATCH" method="POST">
+        <button type="submit">Accept Request</button>
+        </form>
       <% } %>
     <% }) %>
   <% }) %>

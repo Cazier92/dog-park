@@ -94,12 +94,12 @@ function friendCode(req, res) {
 
 function friendRequests(req, res) {
   Profile.findById(req.params.id)
-  .then(profile => {
+  .then(userProfile => {
     Profile.find({})
     .then(globalProfiles => {
-      if (profile._id.equals(req.user.profile._id)) {
+      if (userProfile._id.equals(req.user.profile._id)) {
         res.render('profile/friendRequests', {
-          profile,
+          userProfile,
           globalProfiles,
           title: 'Friend Requests'
         })
@@ -144,6 +144,35 @@ function sendFriendRequest(req, res) {
   })
 }
 
+function addFriend(req, res) {
+  // console.log(req.body, 'req.body')
+  // console.log(req.params, 'req.params')
+  Profile.findById(req.params.userId)
+  .then(userProfile => {
+    Profile.findById(req.params.globalProfileId)
+    .then(friendProfile => {
+      console.log(userProfile._id, 'user profile')
+      console.log(friendProfile._id, 'friendProfile')
+      userProfile.friends.push(friendProfile._id)
+      friendProfile.friends.push(userProfile._id)
+      // userProfile.friendRequests.splice((userProfile.friendRequests.indexOf(friendProfile.friendCode)), 1)
+      userProfile.save()
+      friendProfile.save()
+      .then(() => {
+
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   show,
   edit,
@@ -153,6 +182,7 @@ export {
   friendCode,
   friendRequests,
   sendFriendRequest,
+  addFriend,
 }
 
 // console.log(req.body, 'req.body')
