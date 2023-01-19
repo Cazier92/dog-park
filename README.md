@@ -43,6 +43,7 @@ As a networking app, the main enhancement I'm currently working on is adding a t
 - [ ] Allow users to change their profile picture
 - [ ] Connect an API to allow users to find information on different dog breeds
 - [ ] Add a section to allow users to set up play dates with other nearby dogs (warnings about meeting with strangers included)
+- [ ] Use a dog image API to display a random dog image on the landing page
 
 ## Planning Materials:
 My planning materials can be found [here.](https://trello.com/b/qhzIpzBo/dog-app)

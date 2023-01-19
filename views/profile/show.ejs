@@ -30,11 +30,11 @@
           </button>
           <ul class="dropdown-menu">
           <% profile.dogs.forEach(dog => { %>
-            <li><a href="/dogs/<%= dog._id %>"><%= dog.name %></a></li>
+            <li class="dog-dropdown"><a class='dog-dropdown' href="/dogs/<%= dog._id %>"><%= dog.name %></a></li>
               <% }) %>
-              <li><a class="dropdown-item" href="#">Action</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li> -->
             </ul>
           </div>
           <% if (profile._id.equals(user?.profile._id)) { %>

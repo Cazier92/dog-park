@@ -15,3 +15,7 @@ h3>a {
 h4 {
   font-family: var(--AverageSans);
 }
+
+li>a {
+  color: black
+}
