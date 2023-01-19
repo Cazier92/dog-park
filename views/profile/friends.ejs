@@ -5,7 +5,9 @@
 <main>
   <h1><%= title %></h1>
   <section>
-    
+    <% profile.friends.forEach(friend => { %>
+      <h4><a href="/profile/<%= friend._id %>"><%= friend.name %></a></h4>
+    <% }) %>
   </section>
 </main>
 

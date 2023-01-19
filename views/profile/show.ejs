@@ -11,7 +11,7 @@
     <div>
       <% if (profile._id.equals(user?.profile._id)) { %>
         
-      <% } else if (profile.friends.includes(user?.profile.friendCode)) { %>
+      <% } else if (profile.friends.includes(user?.profile._id)) { %>
         <h6>You and <%= profile.name %> are friends!</h6>
       <% } else { %> 
         <form action="/profile/<%= profile._id %>/sendFriendRequest?_method=PATCH" method="POST"><button type="submit">Add Friend</button></form>
