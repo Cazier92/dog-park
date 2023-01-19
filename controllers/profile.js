@@ -80,7 +80,8 @@ function friendCode(req, res) {
     if (profile._id.equals(req.user.profile._id)) {
       res.render('profile/friendCode', {
         profile,
-        title: 'Friend Code'
+        title: 'Friend Code',
+        message: ''
       })
     } else {
       throw new Error('Not Authorized: user does not match profile._id')
@@ -181,7 +182,7 @@ function addFriendByCode(req, res) {
     Profile.find({})
     .then(globalProfiles => {
       globalProfiles.forEach(globalProfile => {
-        if (globalProfile.friendCode === req.body.friendCode) {
+        if (globalProfile.friendCode === req.body.friendCode && userProfile.friends.includes(globalProfile._id) === false) {
           userProfile.friends.push(globalProfile._id)
           globalProfile.friends.push(userProfile._id)
           userProfile.save()
@@ -193,11 +194,13 @@ function addFriendByCode(req, res) {
             console.log(err)
             res.redirect('/')
           })
+        } else if (userProfile.friends.includes(globalProfile._id)){
+          res.render(`profile/friendCode`, {
+            title: 'Friend Code',
+            profile: userProfile,
+            message: `Error: Already Friends with ${globalProfile.name}`
+          })
         }
-      })
-      .catch(err => {
-        console.log(err)
-        res.redirect('/')
       })
     })
     .catch(err => {
