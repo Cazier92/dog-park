@@ -21,29 +21,31 @@
           <li class="nav-item">
             <a class="nav-link" href="/blogs">Blogs</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" class="<%= user ? 'nav-link active' : 'nav-link disabled' %>" <%= user ? `href=/profile/${user.profile._id}/friendRequests`: 'href="#"' %>><%= user ? 'Friend Requests' : '' %></a></li>
-              <li><a class="dropdown-item" class="<%= user ? 'nav-link active' : 'nav-link disabled' %>" <%= user ? `href=/profile/${user.profile._id}/friendCode`: 'href="#"' %>><%= user ? 'Friend Code' : '' %></a></li>
-              <li><hr class="dropdown-divider"></li>
-              <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-              <li class="nav-item" id="nav-profile-link">
-                <a class='dropdown-item' class="<%= user ? 'nav-link active' : 'nav-link disabled' %>" <%= user ? `href=/profile/${user.profile._id}`: 'href=""' %>><%= user ? `${user.profile.name}` : '' %>
-                  <% if (user?.profile.avatar) { %>
+          <% if (user) { %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Profile Menu
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" <%= user ? `href=/profile/${user.profile._id}/friends` : 'href="#"' %> >Your Friends</a></li>
+                <li><a class="dropdown-item" class="<%= user ? 'nav-link active' : 'nav-link disabled' %>" <%= user ? `href=/profile/${user.profile._id}/friendRequests`: 'href="#"' %>><%= user ? 'Friend Requests' : '' %></a></li>
+                <li><a class="dropdown-item" class="<%= user ? 'nav-link active' : 'nav-link disabled' %>" <%= user ? `href=/profile/${user.profile._id}/friendCode`: 'href="#"' %>><%= user ? 'Friend Code' : '' %></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                <li class="nav-item" id="nav-profile-link">
+                  <a class='dropdown-item' class="<%= user ? 'nav-link active' : 'nav-link disabled' %>" <%= user ? `href=/profile/${user.profile._id}`: 'href=""' %>><%= user ? `${user.profile.name}` : '' %>
+                    <% if (user?.profile.avatar) { %>
                       <img
-                        class="nav-img"
-                        src="<%= user.profile.avatar %>"
-                        alt="<%= user.profile.name %> avatar"
+                      class="nav-img"
+                      src="<%= user.profile.avatar %>"
+                      alt="<%= user.profile.name %> avatar"
                       />
-                  <% } %>
-                </a>
+                      <% } %>
+                    </a>
+                  </li>
+                </ul>
               </li>
-            </ul>
-          </li>
+          <% } %>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

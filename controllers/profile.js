@@ -145,25 +145,23 @@ function sendFriendRequest(req, res) {
 }
 
 function addFriend(req, res) {
-  // console.log(req.body, 'req.body')
-  // console.log(req.params, 'req.params')
   Profile.findById(req.params.userId)
   .then(userProfile => {
     Profile.findById(req.params.globalProfileId)
     .then(friendProfile => {
-      console.log(userProfile._id, 'user profile')
-      console.log(friendProfile._id, 'friendProfile')
       userProfile.friends.push(friendProfile._id)
       friendProfile.friends.push(userProfile._id)
       let friendCodeId = friendProfile.friendCode
       let friendRequestArr = userProfile.friendRequests
-      console.log(friendRequestArr.indexOf(friendCodeId))
       friendRequestArr.splice((friendRequestArr.indexOf(friendCodeId)), 1)
-      // console.log(userProfile.friendRequests.IndexOf('e1ecc000'))
       userProfile.save()
       friendProfile.save()
       .then(() => {
         res.redirect(`/profile/${friendProfile._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
       })
     })
     .catch(err => {
@@ -177,11 +175,59 @@ function addFriend(req, res) {
   })
 }
 
-function findFriendRequestCode(userProfile, friendProfile) {
-  let friendCodeId = friendProfile.friendCode
-  let friendRequestIdx = userProfile.friendRequests.IndexOf(friendCodeId)
-  console.log(friendRequestIdx)
+function addFriendByCode(req, res) {
+  Profile.findById(req.params.id)
+  .then(userProfile => {
+    Profile.find({})
+    .then(globalProfiles => {
+      globalProfiles.forEach(globalProfile => {
+        if (globalProfile.friendCode === req.body.friendCode) {
+          userProfile.friends.push(globalProfile._id)
+          globalProfile.friends.push(userProfile._id)
+          userProfile.save()
+          globalProfile.save()
+          .then(() => {
+            res.redirect(`/profile/${userProfile._id}`)
+          })
+          .catch(err => {
+            console.log(err)
+            res.redirect('/')
+          })
+        }
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
+
+function showFriends(req, res) {
+  Profile.findById(req.params.id)
+  .populate('friends')
+  .then(profile => {
+    if (profile._id.equals(req.user.profile._id)) {
+      res.render(`profile/friends`, {
+        title: 'Your Friends',
+        profile
+      })
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 
 export {
   show,
@@ -193,6 +239,8 @@ export {
   friendRequests,
   sendFriendRequest,
   addFriend,
+  addFriendByCode,
+  showFriends,
 }
 
 // console.log(req.body, 'req.body')

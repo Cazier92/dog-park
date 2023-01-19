@@ -9,8 +9,8 @@
   </section>
   <section>
     <h3>Add Friends by Friend Code:</h3>
-    <form action="/profile/<%= profile._id %>?_method=PATCH" method="POST">
-      <input type="text" name="friendRequests" placeholder="type 8-digit friend code here">
+    <form action="/profile/<%= profile._id %>/addFriendByCode?_method=PATCH" method="POST">
+      <input type="text" name="friendCode" placeholder="type 8-digit friend code here">
       <button type="submit">Add Friend</button>
     </form>
   </section>
