@@ -48,14 +48,14 @@
               </li>
           <% } %>
         </ul>
-        <form class="d-flex" role="search">
+        <!-- <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
+        </form> -->
         <div>
           <% if (user) { %>
             <a href="/auth/logout" class="right">
-              <button type="submit" class="btn btn-outline-light">Logout</button>
+              <button type="submit" class="btn btn-outline-light" id="logout-btn">Logout</button>
             </a>
             <% } else { %>
               <div 

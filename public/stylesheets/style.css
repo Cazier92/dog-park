@@ -26,12 +26,18 @@ body {
   --LaurelGreen: #A9C5A0;
   --TeaGreenLight: #C5EFCB;
   --TeaGreenDark: #C6DEC6;
+  --PottaOne: 'Potta One', cursive;
+  --AverageSans: 'Average Sans', sans-serif;
 }
 
 html, body {
   height: 100%;
   width: 100%;
   margin: 0;
+}
+
+body {
+  text-align: center;
 }
 
 nav {
@@ -76,3 +82,24 @@ main {
   margin-top: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--PottaOne);
+  color: antiquewhite;
+}
+
+h4 {
+  margin-top: 5vmin;
+}
+
+label {
+  font-family: var(--AverageSans);
+}
+
+a {
+  font-family: var(--AverageSans);
+  text-decoration: none;
+  color: var(--TeaGreenLight);
+}
+#logout-btn {
+  width: 100%;
+}

@@ -1,0 +1,35 @@
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+label {
+  margin-bottom: 1vmin;
+}
+
+input {
+  margin-bottom: 2vmin;
+}
+
+textarea {
+  margin-bottom: 2vmin;
+}
+
+button {
+  align-self: center;
+  width: 40%;
+}
+
+@media (max-width: 720px) {
+  form {
+    width: 80%;
+  }
+}

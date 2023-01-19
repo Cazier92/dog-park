@@ -1,11 +1,10 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="../stylesheets/index.css">
+<link rel="stylesheet" href="../stylesheets/newBlog.css">
 <%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
   <section>
-    <p><%= user.profile.id %></p>
     <form action="/blogs" method="POST">
       <label for="blog-title">Blog Title:</label>
       <input type="text" name="title" id="blog-title">
@@ -13,6 +12,7 @@
       <textarea name="summary" id="blog-summary" cols="30" rows="3" placeholder="Please Write a short summary of blog content here"></textarea>
       <label for="blog-content">Blog Content:</label>
       <textarea name="content" id="blog-content" cols="30" rows="10" placeholder="Please Write Your Content Here"></textarea>
+      <br>
       <button type="Submit" class="btn btn-outline-light">Add Post</button>
     </form>
   </section>
