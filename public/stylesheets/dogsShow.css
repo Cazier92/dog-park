@@ -1,0 +1,18 @@
+section {
+  display: flex;
+}
+
+div {
+  padding: 0 5vmin;
+}
+
+@media (max-width: 720px) {
+  section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  div {
+    padding: 0, 2vmin;
+  }
+}

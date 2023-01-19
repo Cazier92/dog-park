@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="../stylesheets/index.css">
+<link rel="stylesheet" href="../stylesheets/profileShow.css">
 <%- include('../partials/nav') %>
 
 <main>
@@ -24,35 +24,36 @@
       </div>
     <section>
       <% if (profile.dogs) { %>
-        <h3>Dogs:</h3>
-      <% } %>
-      <% profile.dogs.forEach(dog => { %>
-        <h5><a href="/dogs/<%= dog._id %>"><%= dog.name %></a></h5>
-        <ul>
-          <li>Breed: <%= dog.breed %></li>
-          <% if (dog.color) { %>
-            <li>Color: <%= dog.color %> </li>
-            <% } %>
-          </ul>
-          <% }) %>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dogs
+          </button>
+          <ul class="dropdown-menu">
+          <% profile.dogs.forEach(dog => { %>
+            <li><a href="/dogs/<%= dog._id %>"><%= dog.name %></a></li>
+              <% }) %>
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
           <% if (profile._id.equals(user?.profile._id)) { %>
-            <a href="/dogs/new">
+            <a class="dropdown-item" href="/dogs/new">
               <button class="btn btn-outline-light">Add Dog</button>
             </a>
-            <a href="/profile/<%= profile._id %> %>/edit">
+            <a class="dropdown-item" href="/profile/<%= profile._id %> %>/edit">
               <button class="btn btn-outline-light">Edit Dogs</button>
             </a>
           <% } %>
-    </section>
-    <% if (profile._id.equals(user?.profile._id)) { %>
-      <section>
-        <a href="/blogs/new"><button class="btn btn-outline-light">Write new Blog</button></a>
-      </section>
       <% } %>
-  </div>
-  <section>
-    <% if (profile._id.equals(user?.profile._id)) { %>    
-      <h2>Your Blogs:</h2>
+    </section>
+    </div>
+    <section>
+      <% if (profile._id.equals(user?.profile._id)) { %>    
+        <h2>Your Blogs:</h2>
+        <section>
+          <a href="/blogs/new"><button class="btn btn-outline-light">Write new Blog</button></a>
+        </section>
       <% } else { %>
         <h2><%= profile.name %>'s Blogs:</h2>
         <% } %> 

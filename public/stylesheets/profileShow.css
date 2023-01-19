@@ -1,0 +1,17 @@
+:root {
+  --PurpleNavy: #464D77;
+  --Xanadu: #758173;
+  --LaurelGreen: #A9C5A0;
+  --TeaGreenLight: #C5EFCB;
+  --TeaGreenDark: #C6DEC6;
+  --PottaOne: 'Potta One', cursive;
+  --AverageSans: 'Average Sans', sans-serif;
+}
+
+h3>a {
+  font-family: var(--PottaOne);
+}
+
+h4 {
+  font-family: var(--AverageSans);
+}
