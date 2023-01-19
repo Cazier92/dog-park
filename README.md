@@ -31,21 +31,21 @@ To check if you've recieved any friend requests, log in and navigate to the Prof
 As a networking app, the main enhancement I'm currently working on is adding a the ability to chat with friends. I'm partway there! Other Ice Box items are listed below.
 
 ### Ice Box 🧊:
--[ ] Allow users to direct message friends
--[ ] Allow users to reject friend requests
--[ ] Allow users to block other users
--[ ] Enable a search bar to find content easily
--[ ] Allow users to add photos to their profile and blogs
--[ ] Light/Dark Mode toggle
--[ ] Allow users to hide profile info from users they aren't friends with
--[ ] Add more inputs for profile info
--[ ] Allow users to sort blog posts
--[ ] Allow users to change their profile picture
--[ ] Connect an API to allow users to find information on different dog breeds
--[ ] Add a section to allow users to set up play dates with other nearby dogs (warnings about meeting with strangers included)
+- [ ] Allow users to direct message friends
+- [ ] Allow users to reject friend requests
+- [ ] Allow users to block other users
+- [ ] Enable a search bar to find content easily
+- [ ] Allow users to add photos to their profile and blogs
+- [ ] Light/Dark Mode toggle
+- [ ] Allow users to hide profile info from users they aren't friends with
+- [ ] Add more inputs for profile info
+- [ ] Allow users to sort blog posts
+- [ ] Allow users to change their profile picture
+- [ ] Connect an API to allow users to find information on different dog breeds
+- [ ] Add a section to allow users to set up play dates with other nearby dogs (warnings about meeting with strangers included)
 
 ## Planning Materials:
-My planning materials can be found ![here.](https://trello.com/b/qhzIpzBo/dog-app)
+My planning materials can be found [here.](https://trello.com/b/qhzIpzBo/dog-app)
 
 ## Credits & Attributions:
 
