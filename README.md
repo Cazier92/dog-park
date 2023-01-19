@@ -1,7 +1,7 @@
 # The Dog Park Network
 
 ## Getting Started:
-Join [here!](https://https://the-dog-park-network.fly.dev/)
+Join [here!](https://the-dog-park-network.fly.dev/)
 
 ![screenshot of game load page](./public/assets/images/appScreenshot.png)
 
