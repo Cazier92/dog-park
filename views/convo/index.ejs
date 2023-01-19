@@ -1,14 +1,20 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="../stylesheets/index.css">
-
 <%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
   <section>
     <% profile.friends.forEach(friend => { %>
-      <h4><a href="/profile/<%= friend._id %>"><%= friend.name %></a></h4>
+      <form action="/convo/<%= profile._id %>/messages/<%= friend._id %>" method="POST">
+        <h4><%= friend.name %></h4>
+        <button type="submit">Start Chat</button>
+      </form>
     <% }) %>
+  </section>
+  <section>
+    <h2>Start New Chat:</h2>
+    <form action=""></form>
   </section>
 </main>
 

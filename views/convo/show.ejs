@@ -1,0 +1,20 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="../stylesheets/index.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <section>
+    <% convo.content.forEach(message => { %>
+      <div <% message.author === userProfile._id ? 'class="user-message"' : 'class="friend-message"' %> >
+        <p><%= message.content %></p>
+        <h6><%= message.author %></h6>
+      </div>
+    <% }) %>
+  </section>
+  <section>
+    <form action="/convo/<%= userProfile._id %>/messages/<%= friendProfile._id %>"></form>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

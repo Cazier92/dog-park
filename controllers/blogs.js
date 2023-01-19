@@ -24,8 +24,6 @@ function newBlog(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body, 'req.body')
-  console.log(req.params, 'req.params')
   req.body.author = req.user.profile._id
   BlogPost.create(req.body)
   .then(blog => {

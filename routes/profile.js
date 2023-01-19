@@ -10,6 +10,7 @@ router.get('/:id/new', isLoggedIn, profileCtrl.new)
 router.get('/:id/friendCode', isLoggedIn, profileCtrl.friendCode)
 router.get('/:id/friendRequests', isLoggedIn, profileCtrl.friendRequests)
 router.get('/:id/friends', isLoggedIn, profileCtrl.showFriends)
+// router.get('/:id/messages', isLoggedIn, profileCtrl.showMessages)
 
 router.post('/:id/dogs', isLoggedIn, profileCtrl.createDog)
 

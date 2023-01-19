@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid'
 const Schema = mongoose.Schema
 
 
-
 const profileSchema = new Schema({
   name: String,
   avatar: String,
@@ -17,7 +16,8 @@ const profileSchema = new Schema({
     }
   },
   friendRequests: [{type: String}],
-  friends: [{type: Schema.Types.ObjectId, ref: 'Profile'}]
+  friends: [{type: Schema.Types.ObjectId, ref: 'Profile'}],
+  friendConvos: [{type: Schema.Types.ObjectId, ref: 'Convo'}],
 }, {
   timestamps: true
 })

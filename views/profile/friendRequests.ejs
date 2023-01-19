@@ -10,7 +10,7 @@
         <img src="<%= globalProfile.avatar %>" alt="Avatar image of <%= globalProfile.name %>">
         <p><a href="/profile/<%= globalProfile._id %>"><%= globalProfile.name %></a></p>
         <form action="/profile/<%= userProfile._id %>/profile/<%= globalProfile._id %>?_method=PATCH" method="POST">
-        <button type="submit">Accept Request</button>
+        <button type="submit" class="btn btn-outline-light">Accept Request</button>
         </form>
       <% } %>
     <% }) %>

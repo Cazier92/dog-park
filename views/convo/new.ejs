@@ -1,14 +1,15 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="../stylesheets/index.css">
-
 <%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
   <section>
-    <% profile.friends.forEach(friend => { %>
-      <h4><a href="/profile/<%= friend._id %>"><%= friend.name %></a></h4>
-    <% }) %>
+    <form action="/convo/<%= convo._id %>/messages" method="POST">
+      <textarea name="content" placeholder="Write New Comment Here"></textarea>
+      <br>
+      <button>Add Comment</button>
+    </form>
   </section>
 </main>
 

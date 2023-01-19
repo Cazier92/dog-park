@@ -19,7 +19,7 @@
         <h6><%= profile.name %> Sent You a Friend Request!</h6>
         <a href="/profile/<%= userProfile._id %>/friendRequests"><button>View Request</button></a>
       <% } else { %> 
-        <form action="/profile/<%= profile._id %>/sendFriendRequest?_method=PATCH" method="POST"><button type="submit">Add Friend</button></form>
+        <form action="/profile/<%= profile._id %>/sendFriendRequest?_method=PATCH" method="POST"><button type="submit" class="btn btn-outline-light">Add Friend</button></form>
       <% } %> 
       </div>
     <section>
@@ -37,16 +37,16 @@
           <% }) %>
           <% if (profile._id.equals(user?.profile._id)) { %>
             <a href="/dogs/new">
-              <button>Add Dog</button>
+              <button class="btn btn-outline-light">Add Dog</button>
             </a>
             <a href="/profile/<%= profile._id %> %>/edit">
-              <button>Edit Profile</button>
+              <button class="btn btn-outline-light">Edit Dogs</button>
             </a>
-            <% } %>
+          <% } %>
     </section>
     <% if (profile._id.equals(user?.profile._id)) { %>
       <section>
-        <a href="/blogs/new"><button>Write new Blog</button></a>
+        <a href="/blogs/new"><button class="btn btn-outline-light">Write new Blog</button></a>
       </section>
       <% } %>
   </div>

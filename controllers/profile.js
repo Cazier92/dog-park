@@ -242,6 +242,17 @@ function showFriends(req, res) {
   })
 }
 
+function showMessages(req, res) {
+  Profile.findById(req.params.id)
+  .populate('friends')
+  .then(profile => {
+    res.render(`profile/messages`, {
+      title: 'Messages',
+      profile
+    })
+  })
+}
+
 
 export {
   show,
@@ -255,6 +266,7 @@ export {
   addFriend,
   addFriendByCode,
   showFriends,
+  showMessages,
 }
 
 // console.log(req.body, 'req.body')

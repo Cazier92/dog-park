@@ -25,14 +25,14 @@
         <p class="details-p">Comment from <a href="/profile/<%= comment.author._id %>"><%= comment.author.name %></a>, posted on <%= comment.createdAt.toLocaleDateString() %></p>
         <% if (comment.author._id.equals(user?.profile._id)) { %>
           <a href="/blogs/<%= blog._id %>/comments/<%= comment._id %>">
-            <button>Edit Comment</button>
+            <button class="btn btn-outline-light">Edit Comment</button>
           </a>
           <form action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-            <button>Delete Comment</button>
+            <button class="btn btn-outline-light">Delete Comment</button>
           </form>
         <% } else if (blog.author._id.equals(user?.profile._id)) { %>
           <form action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-            <button>Delete Comment</button>
+            <button class="btn btn-outline-light">Delete Comment</button>
           </form>
           <% } %> 
       </div>
@@ -42,10 +42,10 @@
   <section>
     <% if (blog.author._id.equals(user?.profile._id)) { %>
       <a href="/blogs/<%= blog._id %>/edit">
-        <button>Edit Blog</button>
+        <button class="btn btn-outline-light">Edit Blog</button>
       </a>
       <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Blog</button>
+        <button type="submit" class="btn btn-outline-light">Delete Blog</button>
       </form>
     <% } %>   
   </section>

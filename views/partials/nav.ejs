@@ -30,6 +30,7 @@
                 <li><a class="dropdown-item" <%= user ? `href=/profile/${user.profile._id}/friends` : 'href="#"' %> >Your Friends</a></li>
                 <li><a class="dropdown-item" class="<%= user ? 'nav-link active' : 'nav-link disabled' %>" <%= user ? `href=/profile/${user.profile._id}/friendRequests`: 'href="#"' %>><%= user ? 'Friend Requests' : '' %></a></li>
                 <li><a class="dropdown-item" class="<%= user ? 'nav-link active' : 'nav-link disabled' %>" <%= user ? `href=/profile/${user.profile._id}/friendCode`: 'href="#"' %>><%= user ? 'Friend Code' : '' %></a></li>
+                <li><a class="dropdown-item" <%= user ? `href=/convo/${user.profile._id}` : 'href="#"' %> >Messages</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                 <li class="nav-item" id="nav-profile-link">
@@ -49,12 +50,12 @@
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
         <div>
           <% if (user) { %>
             <a href="/auth/logout" class="right">
-              <button type="submit">Logout</button>
+              <button type="submit" class="btn btn-outline-light">Logout</button>
             </a>
             <% } else { %>
               <div 
