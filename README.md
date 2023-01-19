@@ -15,7 +15,7 @@ Every user is supplied a unique identifier friend code, which can be found in th
 ##### Send Friend Request:
 Sometimes you'll find a user online that has a blog you really like, has dogs you'd like to meet, or are just interested in getting to know. In this case, just go to their profile and click on the "Add Friend" button. For security reasons, they will have to accept your friend request. After sending the request, a message will appear on their profile, notifying you that the request is pending. If they've accepted your request to be friends, this display will change to display their new status as a friend.
 
-##### Checking Friend Requests:
+###### Checking Friend Requests:
 To check if you've recieved any friend requests, log in and navigate to the Profile Menu. From here, click on the tab labelled "Friend Requests". This will render the page containing all users that have sent you a friend request. To view their profile, click on their name and you will be redirected to their profile page. To accept their request, simply click on the "Accept Request" button, and you will be added to each other's friend contacts.
 
 ## Technologies Used:
