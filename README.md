@@ -31,7 +31,7 @@ To check if you've recieved any friend requests, log in and navigate to the Prof
 As a networking app, the main enhancement I'm currently working on is adding a the ability to chat with friends. I'm partway there! Other Ice Box items are listed below.
 
 ### Ice Box 🧊:
-- [ ] Allow users to direct message friends
+- [ ] Allow users to direct message friends (Bark at Friends)
 - [ ] Allow users to reject friend requests
 - [ ] Allow users to block other users
 - [ ] Enable a search bar to find content easily
