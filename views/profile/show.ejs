@@ -15,6 +15,9 @@
         <h6>You and <%= profile.name %> are friends!</h6>
       <% } else if (profile.friendRequests.includes(userProfile.friendCode)) { %>
         <h6>Friend Request to <%= profile.name %> Pending</h6>
+      <% } else if (userProfile.friendRequests.includes(profile.friendCode)) { %>
+        <h6><%= profile.name %> Sent You a Friend Request!</h6>
+        <a href="/profile/<%= userProfile._id %>/friendRequests"><button>View Request</button></a>
       <% } else { %> 
         <form action="/profile/<%= profile._id %>/sendFriendRequest?_method=PATCH" method="POST"><button type="submit">Add Friend</button></form>
       <% } %> 
