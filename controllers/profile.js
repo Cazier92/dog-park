@@ -205,11 +205,17 @@ function addFriendByCode(req, res) {
             console.log(err)
             res.redirect('/')
           })
-        } else if (userProfile.friends.includes(globalProfile._id)){
+        } else if (globalProfile.friendCode === req.body.friendCode && userProfile.friends.includes(globalProfile._id) === true){
           res.render(`profile/friendCode`, {
             title: 'Friend Code',
             profile: userProfile,
             message: `Error: Already Friends with ${globalProfile.name}`
+          })
+        } else if (globalProfile.friendCode !== req.body.friendCode) {
+          res.render(`profile/friendCode`, {
+            title: 'Friend Code',
+            profile: userProfile,
+            message: `Error: Cannot find user matching code`
           })
         }
       })

@@ -1,0 +1,12 @@
+h1 {
+  margin-bottom: 10vmin;
+}
+
+div {
+  margin-bottom: 5vmin;
+}
+
+section {
+  align-self: flex-start;
+  text-align: left;
+}

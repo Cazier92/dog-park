@@ -103,3 +103,9 @@ a {
 #logout-btn {
   width: 100%;
 }
+
+@media (max-width: 720px) {
+  #logout-btn {
+    width: 40%;
+  }
+}

@@ -1,17 +1,19 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="../stylesheets/index.css">
+<link rel="stylesheet" href="../stylesheets/dogIndex.css">
 <%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
   <section>
     <% breedList.forEach(breed => { %>
-      <h5><%= breed %></h5>
-      <% dogs.forEach(dog => { %>
-        <% if (dog.breed === breed) { %>
-          <a href="/dogs/<%= dog._id %>"><%= dog.name %></a>
-        <% } %>
-      <% }) %>
+      <div>
+        <h5><%= breed %></h5>
+        <% dogs.forEach(dog => { %>
+          <% if (dog.breed === breed) { %>
+            <a href="/dogs/<%= dog._id %>"><%= dog.name %></a>
+            <% } %>
+            <% }) %>
+      </div>
     <% }) %>
   </section>
 </main>
