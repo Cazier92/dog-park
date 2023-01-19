@@ -6,10 +6,21 @@ function show(req, res) {
   .populate('blogPosts')
   .populate('dogs')
   .then(profile => {
-    res.render('profile/show', {
-      profile,
-      title: `${profile.name}`
-    })
+    if (profile._id.equals(req.user.profile._id)) {
+      res.render('profile/show', {
+        profile,
+        title: `${profile.name}`
+      })
+    } else {
+      Profile.findById(req.user.profile._id)
+      .then(userProfile => {
+        res.render('profile/show', {
+          profile,
+          userProfile,
+          title: `${profile.name}`
+        })
+      })
+    }
   })
   .catch(err => {
     console.log(err)
