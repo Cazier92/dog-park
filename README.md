@@ -58,4 +58,8 @@ Nav Icon:
 
 [fontawesome.com](https://fontawesome.com/icons/paw?s=solid&f=classic)
 
+Random Dog Image on Landing Page:
+
+[The Dog API](https://dog.ceo/dog-api)
+
 

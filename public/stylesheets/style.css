@@ -104,6 +104,12 @@ a {
   width: 100%;
 }
 
+#random-dog {
+  max-width: 50vmin;
+  box-shadow: inset, 50px, 10px, 50px, 50px, black;
+  max-height: 80vmin;
+}
+
 @media (max-width: 720px) {
   #logout-btn {
     width: 40%;
