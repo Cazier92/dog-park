@@ -100,6 +100,15 @@ a {
   text-decoration: none;
   color: var(--TeaGreenLight);
 }
+
+p {
+  font-family: var(--AverageSans);
+}
+
+div > ul > li > a {
+  font-family: var(--PottaOne);
+}
+
 #logout-btn {
   width: 100%;
 }
