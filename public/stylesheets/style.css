@@ -28,6 +28,13 @@ body {
   --TeaGreenDark: #C6DEC6;
   --PottaOne: 'Potta One', cursive;
   --AverageSans: 'Average Sans', sans-serif;
+  --SkyBlueCrayola: #1BE7FF;
+  --LightGreen: #6EEB83;
+  --SmokyBlack: #12100E;
+  --SheenGreen: #A2D729;
+  --TuftsBlue: #3C91E6;
+  --BabyPowder: #FAFFFD;
+  --MangoTango: #FA824C;
 }
 
 html, body {
@@ -41,7 +48,7 @@ body {
 }
 
 nav {
-  background-color: #758173;
+  background-color: var(--SheenGreen);
   color: #1a1a1a;
   display: flex;
   align-items: center;
@@ -55,9 +62,9 @@ main {
   justify-content: flex-start;
   flex-direction: column;
   padding: 1vmin 2vmin 0 2vmin;
-  background-color: black;
+  background-color: var(--SmokyBlack);
   height: 100%;
-  color: antiquewhite;
+  color: var(--BabyPowder);
 }
 
 .right {
@@ -65,7 +72,7 @@ main {
 }
 
 .container-fluid {
-  background-color: var(--Xanadu);
+  background-color: var(--SheenGreen);
 }
 
 #nav-profile-link {
@@ -84,7 +91,15 @@ main {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--PottaOne);
-  color: antiquewhite;
+  color: var(--BabyPowder);
+}
+
+h1 {
+  color: var(--TuftsBlue);
+}
+
+h4, h5 {
+  color: var(--MangoTango);
 }
 
 h4 {
@@ -98,7 +113,7 @@ label {
 a {
   font-family: var(--AverageSans);
   text-decoration: none;
-  color: var(--TeaGreenLight);
+  color: var(--BabyPowder);
 }
 
 p {

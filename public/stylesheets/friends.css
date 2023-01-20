@@ -15,15 +15,6 @@
   --MangoTango: #FA824C;
 }
 
-body {
-  text-align: center;
+a {
+  color: var(--MangoTango);
 }
-
-main  {
-  justify-content: flex-start;
-}
-
-h4 {
-  margin-top: 5vmin;
-}
-

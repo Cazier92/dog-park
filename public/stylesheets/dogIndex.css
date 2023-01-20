@@ -1,3 +1,20 @@
+:root {
+  --PurpleNavy: #464D77;
+  --Xanadu: #758173;
+  --LaurelGreen: #A9C5A0;
+  --TeaGreenLight: #C5EFCB;
+  --TeaGreenDark: #C6DEC6;
+  --PottaOne: 'Potta One', cursive;
+  --AverageSans: 'Average Sans', sans-serif;
+  --SkyBlueCrayola: #1BE7FF;
+  --LightGreen: #6EEB83;
+  --SmokyBlack: #12100E;
+  --SheenGreen: #A2D729;
+  --TuftsBlue: #3C91E6;
+  --BabyPowder: #FAFFFD;
+  --MangoTango: #FA824C;
+}
+
 h1 {
   margin-bottom: 10vmin;
 }
@@ -9,4 +26,12 @@ h1 {
 section {
   align-self: flex-start;
   text-align: left;
+}
+
+h1 {
+  color: var(--TuftsBlue);
+}
+
+h5 {
+  color: var(--MangoTango);
 }
