@@ -19,7 +19,7 @@ Sometimes you'll find a user online that has a blog you really like, has dogs yo
 To check if you've recieved any friend requests, log in and navigate to the Profile Menu. From here, click on the tab labelled "Friend Requests". This will render the page containing all users that have sent you a friend request. To view their profile, click on their name and you will be redirected to their profile page. To accept their request, simply click on the "Accept Request" button, and you will be added to each other's friend contacts.
 
 ## Technologies Used:
-<!-- ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) -->
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
