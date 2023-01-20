@@ -24,7 +24,7 @@
       </div>
     <section>
       <% if (profile.dogs) { %>
-        <div class="dropdown">
+        <div class="dropdown" id="dogs-dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dogs
           </button>
@@ -38,12 +38,14 @@
             </ul>
           </div>
           <% if (profile._id.equals(user?.profile._id)) { %>
-            <a class="dropdown-item" href="/dogs/new">
-              <button class="btn btn-outline-light">Add Dog</button>
-            </a>
-            <a class="dropdown-item" href="/profile/<%= profile._id %> %>/edit">
-              <button class="btn btn-outline-light">Edit Dogs</button>
-            </a>
+            <div class="buttons-div">
+              <a class="dropdown-item" href="/dogs/new">
+                <button class="btn btn-outline-light">Add Dog</button>
+              </a>
+              <a class="dropdown-item" href="/profile/<%= profile._id %> %>/edit">
+                <button class="btn btn-outline-light">Edit Dogs</button>
+              </a>
+            </div>
           <% } %>
       <% } %>
     </section>
@@ -51,7 +53,7 @@
     <section>
       <% if (profile._id.equals(user?.profile._id)) { %>    
         <h2>Your Blogs:</h2>
-        <section>
+        <section class="button-section">
           <a href="/blogs/new"><button class="btn btn-outline-light">Write new Blog</button></a>
         </section>
       <% } else { %>

@@ -23,6 +23,19 @@ h4 {
   font-family: var(--AverageSans);
 }
 
+.buttons-div {
+  margin: 2vmin 0;
+  display: flex;
+}
+
+#dogs-dropdown {
+  margin: 2vmin 0;
+}
+
+.button-section {
+  margin: 2vmin 0;
+}
+
 li>a {
   color: black
 }
