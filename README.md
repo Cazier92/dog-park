@@ -32,6 +32,7 @@ As a networking app, the main enhancement I'm currently working on is adding a t
 
 ### Ice Box 🧊:
 - [ ] Allow users to direct message friends (Bark at Friends)
+- [ ] Add a Help section with instructions for app use
 - [ ] Allow users to reject friend requests
 - [ ] Allow users to block other users
 - [ ] Enable a search bar to find content easily
