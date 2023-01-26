@@ -18,6 +18,7 @@ router.put('/:id/dogs/:dogsId', isLoggedIn, profileCtrl.updateDogs)
 
 router.patch('/:id/sendFriendRequest', isLoggedIn, profileCtrl.sendFriendRequest)
 router.patch('/:userId/profile/:globalProfileId', isLoggedIn, profileCtrl.addFriend)
+router.patch('/:userId/profile/:globalProfileId/denyRequest', isLoggedIn, profileCtrl.denyRequest)
 router.patch('/:id/addFriendByCode', isLoggedIn, profileCtrl.addFriendByCode)
 
 export {

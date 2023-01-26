@@ -12,6 +12,9 @@
         <form action="/profile/<%= userProfile._id %>/profile/<%= globalProfile._id %>?_method=PATCH" method="POST">
         <button type="submit" class="btn btn-outline-light">Accept Request</button>
         </form>
+        <form action="/profile/<%= userProfile._id %>/profile/<%= globalProfile._id %>/denyRequest?_method=PATCH" method="POST">
+        <button type="submit" class="btn btn-outline-light">Deny Request</button>
+        </form>
       <% } %>
     <% }) %>
   <% }) %>

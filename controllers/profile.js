@@ -187,6 +187,35 @@ function addFriend(req, res) {
   })
 }
 
+function denyRequest(req, res) {
+  Profile.findById(req.params.userId)
+  .then(userProfile => {
+    Profile.findById(req.params.globalProfileId)
+    .then(friendProfile => {
+      let friendCodeId = friendProfile.friendCode
+      let friendRequestArr = userProfile.friendRequests
+      friendRequestArr.splice((friendRequestArr.indexOf(friendCodeId)), 1)
+      userProfile.save()
+      friendProfile.save()
+      .then(() => {
+        res.redirect(`/profile/${userProfile._id}/friendRequests`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 function addFriendByCode(req, res) {
   Profile.findById(req.params.id)
   .then(userProfile => {
@@ -217,7 +246,7 @@ function addFriendByCode(req, res) {
             profile: userProfile,
             message: `Error: Cannot find user matching code`
           })
-        }
+        } 
       })
     })
     .catch(err => {
@@ -273,6 +302,7 @@ export {
   addFriendByCode,
   showFriends,
   showMessages,
+  denyRequest,
 }
 
 // console.log(req.body, 'req.body')
